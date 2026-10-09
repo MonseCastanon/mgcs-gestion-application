@@ -1,7 +1,7 @@
 name: Pruebas Automáticas
 
 on:
-  [push]:
+  push:
     branches: 
       - main
       - develop
