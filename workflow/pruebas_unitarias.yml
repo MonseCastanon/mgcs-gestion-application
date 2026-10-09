@@ -1,0 +1,29 @@
+name: Pruebas Automáticas
+
+on:
+  [push]:
+    branches: 
+      - main
+      - develop
+      - release
+
+jobs:
+  testear-codigo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      
+      - name: Instalar las dependencias
+        run: python install pytest
+      
+      - name: Ejecutar las pruebas
+        run: pytest test_app.py
+      
+      
+      
