@@ -1,0 +1,26 @@
+name: Pruebas Node
+
+on: 
+  push:
+    branches:
+     - main
+     - develop
+     - release
+
+jobs:
+  testear-node:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "16.14.0"
+      
+      - name: Instalar las dependencias
+        run: npm install
+      
+      - name: Ejecutar las pruebas
+        run: npm test
